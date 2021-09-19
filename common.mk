@@ -192,6 +192,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.oplus
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oplus
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
@@ -324,6 +325,7 @@ PRODUCT_PACKAGES += \
 # OnePlus Dolby
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/dolby/dax-default.xml:$(TARGET_COPY_OUT_ODM)/etc/dolby/dax-default.xml
+    oneplus-fwk
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -338,6 +340,8 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.oplus-libperfmgr
+    vendor.lineage.powershare@1.0-service.oplus
+
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -389,6 +393,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # Storage
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
@@ -424,6 +429,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.oplus
 
+# tri-state-key
+PRODUCT_PACKAGES += \
+    KeyHandler \
+    tri-state-key_daemon.vendor
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
@@ -454,7 +468,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.oneplus_kona
+    vendor.qti.hardware.vibrator.service.oneplus
 
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
